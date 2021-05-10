@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
+  // req1, criação das rotas
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Route path="/" component={ MovieList } />
@@ -16,6 +17,7 @@ function App() {
       <Route path="/movies/:id/edit" component={ EditMovie } />
       <Route path="" component={ NotFound } />
     </BrowserRouter>
+  // req1, criação das rotas
   );
 }
 
