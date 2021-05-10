@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
-
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -11,14 +10,14 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
-      loading: false,
+      loading: false, // criação do estado inicial do load na tela
     };
   }
 
   componentDidMount() {
-    this.loadingState(true); // chamada na mudança do estado
-    movieAPI.getMovies().then((result) => { // chamada da API
-      this.setState({ movies: result });
+    this.loadingState(true); // chamada na mudança do estado do load
+    movieAPI.getMovies().then((result) => { // chamada da API em movieAPI buscando a funçao getMovies
+      this.setState({ movies: result }); // chamada da API em movieAPI buscando a funçao getMovies
       this.loadingState(false);
     });
   }
