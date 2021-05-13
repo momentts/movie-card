@@ -10,49 +10,30 @@ class MovieDetails extends Component {
     super();
 
     this.state = { // estados iniciais do component
-      movie: '',
+      data: [],
       loading: true, // diferente do MovieList aqui o estado inicia verdadeiro, ja que é uma pagina nova(redirecionamento)
     };
-    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
-  componentDidMount() { // constructor > render > componentDidMount(invocado imediatamente após um componente ser montado)
-    this.getIdMovie(); // componente montado fazendo requisição para getIdMovie
-    this.loadingState(true); // chamada na mudança do estado do load
-    this.deleteMovie(); // chamada do delete
+  componentDidMount() {
+    const {
+      match: { params },
+    } = this.props;
+    movieAPI
+      .getMovie(params.id)
+      .then((data) => this.setState({ data, loading: false }));
   }
 
-  getIdMovie() {
-    // auxilio extraído do site https://scotch.io/courses/using-react-router-4/route-params
-    // req 4 do projeto
-    const { match: { params: { id } } } = this.props; // obtendo acesso especifico ao ID através do match, deixando o acesso a rota dinamico
-    movieAPI.getMovie(id) // fazendo a requizição a função utilizando o ID acessado na linha 27
-      .then((result) => { // resposta positiva da requisição
-        this.setState({ // mudança no estado de movie e loading
-          movie: result,
-          loading: false,
-        });
-      });
+  handleDelete(id) {
+    movieAPI.deleteMovie(id);
   }
-
-  deleteMovie() {
-    // auxilio extraído do site https://scotch.io/courses/using-react-router-4/route-params
-    // req 7 do projeto
-    const { match: { params: { id } } } = this.props; // obtendo acesso especifico ao ID através do match, deixando o acesso a rota dinamico
-    movieAPI.deleteMovie(id) // resolvendo a requisição através do ID extraido na linha 40
-      .then((data) => data);
-  }
-
-  loadingState() {
-    this.setState((state) => ({ loading: !state.loading })); // mudança no estado do load, explicação aula ao vivo dia 05/05
-  } // mesma logica do MovieList, copiado e colado literalmente
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { loading, movie } = this.state;
+    const { loading, data } = this.state;
     if (loading) return <Loading />; // if (true) return <Loading />;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = data;
 
     return (
       <div data-testid="movie-details">
@@ -64,7 +45,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+        <Link to="/" onClick={ () => this.handleDelete(id) }>DELETAR</Link>
       </div>
     );
   }
@@ -72,10 +53,8 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number,
-    }),
-  }),
-}.isRequired;
+    params: PropTypes.arrayOf.isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;
