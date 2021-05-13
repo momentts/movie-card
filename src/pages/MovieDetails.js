@@ -11,7 +11,7 @@ class MovieDetails extends Component {
 
     this.state = { // estados iniciais do component
       movie: [],
-      loading: true, // diferente do MovieList aqui o estado inicia verdadeiro, ja que é uma pagina nova!
+      loading: true, // diferente do MovieList aqui o estado inicia verdadeiro, ja que é uma pagina nova(redirecionamento)
     };
     this.deleteMovie = this.deleteMovie.bind(this);
   }
@@ -25,7 +25,7 @@ class MovieDetails extends Component {
     // auxilio extraído do site https://scotch.io/courses/using-react-router-4/route-params
     // req 4 do projeto
     const { match: { params: { id } } } = this.props; // obtendo acesso especifico ao ID através do match, deixando o acesso a rota dinamico
-    movieAPI.getMovie(id) // fazendo a requizição a função utilizando o ID acessado na linha 25
+    movieAPI.getMovie(id) // fazendo a requizição a função utilizando o ID acessado na linha 27
       .then((data) => { // resposta positiva da requisição
         this.setState({ // mudança no estado de movie e loading
           movie: data,
@@ -38,7 +38,7 @@ class MovieDetails extends Component {
     // auxilio extraído do site https://scotch.io/courses/using-react-router-4/route-params
     // req 7 do projeto
     const { match: { params: { id } } } = this.props; // obtendo acesso especifico ao ID através do match, deixando o acesso a rota dinamico
-    movieAPI.deleteMovie(id) // resolvendo a requisição através do ID extraido na linha 37
+    movieAPI.deleteMovie(id) // resolvendo a requisição através do ID extraido na linha 40
       .then((data) => data);
   }
 
