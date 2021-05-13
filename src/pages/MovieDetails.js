@@ -11,13 +11,14 @@ class MovieDetails extends Component {
 
     this.state = { // estados iniciais do component
       movie: [],
-      loading: true,
+      loading: true, // diferente do MovieList aqui o estado inicia verdadeiro, ja que é uma pagina nova!
     };
     this.deleteMovie = this.deleteMovie.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount() { // constructor > render > componentDidMount(invocado imediatamente após um componente ser montado)
     this.getIdMovie(); // componente montado fazendo requisição para getIdMovie
+    this.loadingState(true); // chamada na mudança do estado do load
   }
 
   getIdMovie() {
@@ -41,11 +42,15 @@ class MovieDetails extends Component {
       .then((data) => data);
   }
 
+  loadingState() {
+    this.setState((state) => ({ loading: !state.loading })); // mudança no estado do load, explicação aula ao vivo dia 05/05
+  } // mesma logica do MovieList, copiado e colado literalmente
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
     const { loading, movie } = this.state;
-    if (loading) return <Loading />;
+    if (loading) return <Loading />; // if (true) return <Loading />;
     const { match: { params: { id } } } = this.props;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
