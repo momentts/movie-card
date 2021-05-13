@@ -10,7 +10,7 @@ class MovieDetails extends Component {
     super();
 
     this.state = { // estados iniciais do component
-      movie: [],
+      movie: '',
       loading: true, // diferente do MovieList aqui o estado inicia verdadeiro, ja que é uma pagina nova(redirecionamento)
     };
     this.deleteMovie = this.deleteMovie.bind(this);
@@ -19,6 +19,7 @@ class MovieDetails extends Component {
   componentDidMount() { // constructor > render > componentDidMount(invocado imediatamente após um componente ser montado)
     this.getIdMovie(); // componente montado fazendo requisição para getIdMovie
     this.loadingState(true); // chamada na mudança do estado do load
+    this.deleteMovie(); // chamada do delete
   }
 
   getIdMovie() {
@@ -26,9 +27,9 @@ class MovieDetails extends Component {
     // req 4 do projeto
     const { match: { params: { id } } } = this.props; // obtendo acesso especifico ao ID através do match, deixando o acesso a rota dinamico
     movieAPI.getMovie(id) // fazendo a requizição a função utilizando o ID acessado na linha 27
-      .then((data) => { // resposta positiva da requisição
+      .then((result) => { // resposta positiva da requisição
         this.setState({ // mudança no estado de movie e loading
-          movie: data,
+          movie: result,
           loading: false,
         });
       });
@@ -51,8 +52,7 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
     const { loading, movie } = this.state;
     if (loading) return <Loading />; // if (true) return <Loading />;
-    const { match: { params: { id } } } = this.props;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
       <div data-testid="movie-details">
