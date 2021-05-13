@@ -17,7 +17,7 @@ class MovieList extends Component {
   componentDidMount() {
     this.loadingState(true); // chamada na mudança do estado do load
     movieAPI.getMovies().then((result) => { // chamada da API em movieAPI buscando a funçao getMovies
-      this.setState({ movies: result }); // chamada da API em movieAPI buscando a funçao getMovies
+      this.setState({ movies: result }); // chamada da API em movieAPI buscando a funçao getMovies e alterando o estado
       this.loadingState(false);
     });
   }
