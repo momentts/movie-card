@@ -1,12 +1,4 @@
-### Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe
-
 # Boas vindas ao repositório do projeto de Movie Cards CRUD!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
 
 # Sumário
 
@@ -54,17 +46,11 @@ Nesse projeto, você será capaz de:
 - Estruturar e organizar as rotas da sua aplicação com o componente Switch ;
 - Usar o componente Redirect pra alternar entre rotas.
 
-# Entregáveis
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub sempre que precisar!
-
 ---
 
 ## O que deverá ser desenvolvido
 
-Dando continuidade aos últimos projetos, você criará um **CRUD** de cartões de filmes em React. 
+Você criará um **CRUD** de cartões de filmes em React. 
 A sigla **CRUD** significa, _Create, Read, Update and Delete_, então deve ser possível realizar as seguintes operações nesse projeto:
 
   - Adicionar um novo filme à lista - **CREATE**;
@@ -73,10 +59,6 @@ A sigla **CRUD** significa, _Create, Read, Update and Delete_, então deve ser p
   - E apagar um filme da lista - **DELETE**;
 
 ## Desenvolvimento
-
-Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando múltiplos componentes, o que é uma boa prática, todas as funcionalidades eram acessadas ao mesmo tempo, no mesmo lugar, utilizando apenas uma URL (`localhost:3000`, normalmente). Na mesma página onde havia a listagem de filmes, havia um formulário pra criar um novo filme, por exemplo. À medida que seus apps se tornarem maiores e mais complexos, isso se tornará inviável. Desta vez, as funcionalidades do app serão agrupadas e organizadas em rotas.
-
-Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raiz (`/`).
 
 Este app terá 4 rotas:
 
@@ -94,38 +76,24 @@ Naturalmente, haverá links de navegação e redirecionamento entre as diferente
 
 Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e _promises_. Também deverá fazer uso de _lifecycle methods_ e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
 
-## Data de entrega
+Passo a passo para a execução:
+No diretório do projeto rode:
 
-  - Serão `2` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `17/05/2021 - 14:00h`.
-
----
-
-# Instruções para entregar seu projeto
-
-## Antes de começar a desenvolver
-
-1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-010-b-project-movie-card-library-crud.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-010-b-project-movie-card-library-crud`
-
-2. Instale as dependências e inicialize o projeto
+1. Instale as dependências e inicialize o projeto
   * Instale as dependências:
     * `npm install`
   * Inicialize o projeto:
     * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
 
-3. Crie uma branch a partir da branch `master`
+2. Crie uma branch a partir da branch `master`
   * Verifique que você está na branch `master`
     * Exemplo: `git branch`
   * Se não estiver, mude para a branch `master`
     * Exemplo: `git checkout master`
   * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
     * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-project-movie-card-library-crud`
 
-4. Faça alterações em algum dos componentes que precisam de implementação, por exemplo o `App` em `src/`:
+3. Faça alterações em algum dos componentes que precisam de implementação, por exemplo o `App` em `src/`:
 ```jsx
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -141,73 +109,11 @@ function App() {
 
 export default App;
 ```
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listado o arquivo _src/App.js_ em vermelho)
-  * Adicione o arquivo alterado ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/App.js_ em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-project-movie-card-library-crud`
-
-7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-010-b-project-movie-card-library-crud/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-010-b-project-movie-card-library-crud/pulls) e confira que o seu _Pull Request_ está criado
-
-
----
-
-## Durante o desenvolvimento
-
-* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
-
-* ⚠ **LEMBRE-SE DE CRIAR TODOS OS ARQUIVOS DENTRO DA PASTA COM O SEU NOME** ⚠
-
-* Faça `commits` das alterações que você fizer no código regularmente;
-
-* Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
-
-* Os comandos que você utilizará com mais frequência são:
-
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
-
-  2. `git add` _(para adicionar arquivos ao stage do Git)_;
-
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_;
-
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_;
-
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_.
-
 ---
 
 # Como desenvolver
 
 Este repositório já contém um _template_ com um App React criado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você deverá completar este _template_ implementando os requisitos listados na próxima seção.
-
----
-
-## Nomenclatura 
-
-**ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser **exatamente igual** ao texto descrito no requisito. Em alguns componentes foram colocadas propriedades chamadas _data-testid_ que, sob nenhuma hipótese devem ser alteradas. Os detalhes acima tem implicação direta no funcionamento do avaliador.
-
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
-
-**⚠️ Adicione PropTypes a todos os componentes ⚠️**
-
-Todos os componentes que recebem _props_ devem ter suas _PropTypes_ corretamente declaradas. O _eslint_ checa automaticamente declaração de _PropTypes_, portanto seu _Pull Request_ só receberá nota se elas estiverem feitas.
 
 ---
 
@@ -221,10 +127,6 @@ e de fácil manutenção! Para roda-los localmente no projeto, execute os comand
 npm run lint
 npm run lint:styles
 ```
-
-⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
-ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
-
 ---
 
 ## Testes
@@ -246,26 +148,11 @@ it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
   expect(wrapper.find('header h1').text()).toBe('Movie Cards Library');
 });
 ```
-
-Uma estratégia é pular todos os testes no início e ir implementando um teste de cada vez, removendo dele a função `skip`.
-
-Você também pode rodar apenas um arquivo de teste, por exemplo:
-
-```bash
-npm test SearchBar.test.js
-```
-
-⚠️ Lembre-se de não entregar o projeto com nenhum teste ignorado. **Testes ignorados serão tratados como testes falhando**. ⚠️
-
-⚠️ **Não apague, em hipótese alguma, qualquer teste ou arquivo deste repositório**. ⚠️
-
 ---
 
 ### Dica: watch mode
 
 Ao executar os testes localmente, [Jest](https://jestjs.io/), a ferramenta que executa os testes, entra em _watch mode_. Nesse modo, a cada vez que um arquivo é salvo, os testes são executados novamente. Isso pode aumentar sua produtividade removendo a necessidade de executar os testes manualmente o tempo todo. Você pode abrir uma aba no seu terminal ou no terminal do _VSCode_ e deixar o _Jest_ rodando nesse modo.
-
-⚠️  **Este trabalho contém alguns testes de componente não relacionados diretamente a requisitos! Estude-os e use-os para se orientar durante o desenvolvimento, garantindo que estejam sempre passando** ✅! ⚠️
 
 ---
 
@@ -402,32 +289,3 @@ Ao clicar neste link, faça uma requisição utilizando a função `deleteMovie`
 
 ---
 
-## Depois de terminar o desenvolvimento (opcional)
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
----
-
-## Revisando um pull request
-
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
-
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://bit.ly/3ta7hA0)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
